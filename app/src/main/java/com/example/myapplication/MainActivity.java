@@ -7,6 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+
+import com.example.myapplication.Api.UsersServiceImpl;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,5 +25,25 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+//        UsersServiceImpl service = new UsersServiceImpl();
+//        service.request();
+
+//        NavController navController = Navigation.findNavController(this, R.id.main_content);
+
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.main_content);
+        NavController navController = navHostFragment.getNavController();
+
+
+
+
+
+
+
+
+//        NavController navController = Navigation.findNavController(this, R.id.main_content);
+
+
     }
 }
