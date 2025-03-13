@@ -40,13 +40,24 @@
             android:layout_marginStart="5dp"/>
 
         <TextView
+            android:id="@+id/tvMaidenName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/tvMobileNumber"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/ivUser"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            tools:text="Maiden Name : Sample name" />
+
+        <TextView
             android:id="@+id/tvDesignation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="#AF000000"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/ivUser"
-            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            app:layout_constraintTop_toBottomOf="@+id/tvMaidenName"
             tools:text="Junior Software Engineer"
             android:layout_marginStart="5dp"
             app:layout_constraintEnd_toStartOf="@+id/tvMobileNumber"/>

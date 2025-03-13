@@ -8,19 +8,15 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.myapplication.Api.UserService;
 import com.example.myapplication.Api.UsersServiceImpl;
 import com.example.myapplication.R;
-import com.example.myapplication.UserListApiModel;
+import com.example.myapplication.UserListApiAdapter;
 import com.example.myapplication.databinding.FragmentListApiBinding;
-
-import java.util.List;
 
 
 public class ListApiFragment extends Fragment {
@@ -31,12 +27,12 @@ public class ListApiFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentListApiBinding.inflate(inflater, container, false);
 
-        binding.fabAddUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(binding.getRoot()).navigate(R.id.action_dest_list_api_to_detailsFragment);
-            }
-        });
+//        binding.fabAddUser.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Navigation.findNavController(binding.getRoot()).navigate(R.id.action_dest_list_api_to_detailsFragment);
+//            }
+//        });
 
         return binding.getRoot();
         // Inflate the layout for this fragment

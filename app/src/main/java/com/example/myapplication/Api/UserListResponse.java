@@ -26,6 +26,9 @@ public class UserListResponse {
         @SerializedName("phone")
         private String phoneNumber;
 
+        @SerializedName("maidenName")
+        private String maidenName;
+
         @SerializedName("company")
         private Company company;
 
@@ -51,6 +54,14 @@ public class UserListResponse {
 
         public void setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
+        }
+
+        public String getMaidenName() {
+            return maidenName;
+        }
+
+        public void setMaidenName(String maidenName) {
+            this.maidenName = maidenName;
         }
 
         public Company getCompany() {

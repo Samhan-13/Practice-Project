@@ -5,12 +5,14 @@ public class UserListApiModel {
     private String designation;
     private String mobileNumber;
     private long id;
+    private String maidenName;
 
-    public UserListApiModel(String name, String designation, String mobileNumber, long id) {
+    public UserListApiModel(String name, String designation, String mobileNumber, long id, String maidenName) {
         this.name = name;
         this.designation = designation;
         this.mobileNumber = mobileNumber;
         this.id = id;
+        this.maidenName = maidenName;
     }
 
     public String getName() {
@@ -45,4 +47,11 @@ public class UserListApiModel {
         this.id = id;
     }
 
+    public String getMaidenName() {
+        return maidenName;
+    }
+
+    public void setMaidenName(String maidenName) {
+        this.maidenName = maidenName;
+    }
 }

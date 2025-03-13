@@ -15,7 +15,7 @@
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Name" />
+        android:text="Name" />
 
     <TextView
         android:id="@+id/tvName"
@@ -38,7 +38,7 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvName"
-        tools:text="Id" />
+        android:text="Id" />
 
     <TextView
         android:id="@+id/tvId"
@@ -52,7 +52,7 @@
         tools:text="423424" />
 
     <TextView
-        android:id="@+id/tvAddressTitle"
+        android:id="@+id/tvEmailTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -60,17 +60,17 @@
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvId"
-        tools:text="Address" />
+        android:text="Email" />
 
     <TextView
-        android:id="@+id/tvAddress"
+        android:id="@+id/tvEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAddressTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailTitle"
         tools:text="jklxdhjfgklsdfhkg" />
 
 
