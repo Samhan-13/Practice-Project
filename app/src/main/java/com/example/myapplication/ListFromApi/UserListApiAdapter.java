@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.ListFromApi;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -13,6 +13,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.myapplication.R;
 
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class UserListApiAdapter extends RecyclerView.Adapter<UserListApiAdapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.list_item_from_api, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }

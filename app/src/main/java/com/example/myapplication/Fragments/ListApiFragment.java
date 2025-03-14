@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.example.myapplication.Api.UsersServiceImpl;
 import com.example.myapplication.R;
-import com.example.myapplication.UserListApiAdapter;
+import com.example.myapplication.ListFromApi.UserListApiAdapter;
 import com.example.myapplication.databinding.FragmentListApiBinding;
 
 
@@ -27,12 +27,7 @@ public class ListApiFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentListApiBinding.inflate(inflater, container, false);
 
-//        binding.fabAddUser.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Navigation.findNavController(binding.getRoot()).navigate(R.id.action_dest_list_api_to_detailsFragment);
-//            }
-//        });
+
 
         return binding.getRoot();
         // Inflate the layout for this fragment

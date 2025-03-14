@@ -2,14 +2,11 @@ package com.example.myapplication.Api;
 
 import android.util.Log;
 
-import com.example.myapplication.CallBack;
 import com.example.myapplication.CallbackDetails;
-import com.example.myapplication.UserListApiModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class DetailsServiceImpl {
     UserDetailsModel userDetailsModel = null;

@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.ListFromApi;
 
 public class UserListApiModel {
     private String name;

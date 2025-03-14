@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dest_list_api">
+    app:startDestination="@id/buttonHolderFragment">
 
     <fragment
         android:id="@+id/dest_list_api"
@@ -19,5 +19,35 @@
         android:name="com.example.myapplication.Fragments.DetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details" />
+    <fragment
+        android:id="@+id/addUserFragment"
+        android:name="com.example.myapplication.Fragments.AddUserFragment"
+        android:label="fragment_add_user"
+        tools:layout="@layout/fragment_add_user" >
+        <action
+            android:id="@+id/action_addUserFragment_to_userListFromDbFragment"
+            app:destination="@id/userListFromDbFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userListFromDbFragment"
+        android:name="com.example.myapplication.Fragments.UserListFromDbFragment"
+        android:label="fragment_user_list_from_db"
+        tools:layout="@layout/fragment_user_list_from_db" >
+        <action
+            android:id="@+id/action_userListFromDbFragment_to_addUserFragment"
+            app:destination="@id/addUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/buttonHolderFragment"
+        android:name="com.example.myapplication.Fragments.ButtonHolderFragment"
+        android:label="fragment_button_holder"
+        tools:layout="@layout/fragment_button_holder" >
+        <action
+            android:id="@+id/action_buttonHolderFragment_to_dest_list_api"
+            app:destination="@id/dest_list_api" />
+        <action
+            android:id="@+id/action_buttonHolderFragment_to_userListFromDbFragment"
+            app:destination="@id/userListFromDbFragment" />
+    </fragment>
 
 </navigation>
