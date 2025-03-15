@@ -43,7 +43,6 @@ public class UserListApiAdapter extends RecyclerView.Adapter<UserListApiAdapter.
             holder.tvDesignation.setText(infolist.get(position).getDesignation());
             holder.tvMobileNumber.setText(infolist.get(position).getMobileNumber());
 
-
             if(infolist.get(position).getMaidenName()!=null && !infolist.get(position).getMaidenName().isEmpty()){
                 holder.tvMaidenName.setText("Maiden Name: "+infolist.get(position).getMaidenName());
                 holder.tvMaidenName.setVisibility(VISIBLE);

@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.Database.AppDatabase;
 import com.example.myapplication.Database.User;
 import com.example.myapplication.R;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.List;
 
 public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> {
@@ -40,6 +43,17 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
         holder.tvName.setText(list.get(position).getName());
         holder.tvCode.setText(Integer.toString(list.get(position).getCode()));
         holder.tvMobileNumber.setText(list.get(position).getMobileNumber());
+
+        Picasso.get()
+                .load(new File(list.get(position).getFilePath()))
+                .into(holder.ivUser);
+
+//        Picasso.get()
+//                .load(list.get(position).getFilePath())
+//                .placeholder(R.drawable.download) // Use a valid drawable
+//                .error(R.drawable.add_image) // Use a valid drawable
+//                .into(holder.ivUser);
+
 
         UserModel userModel = list.get(position);
 
@@ -92,12 +106,14 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvName, tvCode, tvMobileNumber;
+        ImageView ivUser;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tvName = itemView.findViewById(R.id.tvName);
             tvCode = itemView.findViewById(R.id.tvCode);
             tvMobileNumber = itemView.findViewById(R.id.tvMobileNumber);
+            ivUser = itemView.findViewById(R.id.ivUser);
         }
     }
 }

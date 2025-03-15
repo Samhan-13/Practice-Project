@@ -17,12 +17,15 @@ public class User {
     @ColumnInfo(name = "mobileNumber")
     String mobileNumber;
 
-    public User(String name, String mobileNumber, int code) {
-        this.name = name;
-        this.mobileNumber = mobileNumber;
-//        this.code = Integer.parseInt(UUID.randomUUID().toString());
-        this.code = code;
-    }
+    @ColumnInfo(name = "filePath")
+    String filePath;
+
+//    public User(String name, String mobileNumber, int code) {
+//        this.name = name;
+//        this.mobileNumber = mobileNumber;
+////        this.code = Integer.parseInt(UUID.randomUUID().toString());
+//        this.code = code;
+//    }
 
 
     public int getId() {
@@ -55,5 +58,13 @@ public class User {
 
     public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
     }
 }

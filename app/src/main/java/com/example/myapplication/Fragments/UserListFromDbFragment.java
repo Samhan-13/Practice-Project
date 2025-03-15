@@ -61,7 +61,7 @@ public class UserListFromDbFragment extends Fragment {
             for (User user : userListFromDb) {
                 if(user!=null)
                 {
-                    userList.add(new UserModel(user.getName(), user.getMobileNumber(), user.getCode(), user.getId()));
+                    userList.add(new UserModel(user.getName(), user.getMobileNumber(), user.getCode(), user.getId(), user.getFilePath()));
                 } else{
                     Log.d("asdDB","user null");
                 }

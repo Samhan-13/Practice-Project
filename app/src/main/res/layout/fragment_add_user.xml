@@ -23,12 +23,12 @@
         android:hint="Mobile Number"
         android:inputType="number" />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/ivUploadUserImage"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="300dp"-->
-<!--        android:clickable="true"-->
-<!--        android:src="@drawable/add_image" />-->
+    <ImageView
+        android:id="@+id/ivUploadUserImage"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:clickable="true"
+        android:src="@drawable/add_image" />
 
     <Button
         android:id="@+id/btnSubmit"

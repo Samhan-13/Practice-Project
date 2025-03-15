@@ -8,18 +8,27 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.myapplication.Api.UserListResponse;
 import com.example.myapplication.Api.UsersServiceImpl;
+import com.example.myapplication.ListFromApi.UserListApiModel;
 import com.example.myapplication.R;
 import com.example.myapplication.ListFromApi.UserListApiAdapter;
 import com.example.myapplication.databinding.FragmentListApiBinding;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class ListApiFragment extends Fragment {
+
+    private List<UserListApiModel> list = new ArrayList<>();
+    UserListApiAdapter adapter;
 
     private FragmentListApiBinding binding;
     @Override
@@ -37,23 +46,22 @@ public class ListApiFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+
+        adapter = new UserListApiAdapter(getContext(), list);
+        binding.recyclerView.setAdapter(adapter);
+
         showUserList();
-//        Toast.makeText(getContext(), "called", Toast.LENGTH_SHORT).show();
     }
 
     private void showUserList() {
         UsersServiceImpl service = new UsersServiceImpl();
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//        List<UserListApiModel>list =service.request();
         service.request(data -> {
-            UserListApiAdapter adapter = new UserListApiAdapter(getContext(), data);
-            binding.recyclerView.setAdapter(adapter);
-//            if(adapter.infolist.isEmpty()){
-//                Toast.makeText(getContext(), "empty "+data.size(), Toast.LENGTH_SHORT).show();
-//            }
+            list.addAll(data);
+            Log.d("asdData", ""+list.get(0).getName());
+            adapter.notifyDataSetChanged();
             Toast.makeText(getContext(), "method called "+data.size(), Toast.LENGTH_SHORT).show();
         });
-
-//
     }
 }
