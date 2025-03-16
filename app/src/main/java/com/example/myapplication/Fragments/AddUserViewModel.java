@@ -5,6 +5,7 @@ import static androidx.core.app.ActivityCompat.startActivityForResult;
 
 import static java.security.AccessController.getContext;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -12,6 +13,7 @@ import android.provider.MediaStore;
 
 import androidx.lifecycle.ViewModel;
 
+import com.example.myapplication.Database.AppDatabase;
 import com.example.myapplication.Database.User;
 import com.example.myapplication.databinding.FragmentAddUserBinding;
 
@@ -25,7 +27,7 @@ public class AddUserViewModel extends ViewModel {
     private  int code;
     private List<User> list = new ArrayList<>();
     private String filePath;
-
+    private Context context;
     private int PICK_IMAGE_REQUEST = 1;
 
 
@@ -75,6 +77,25 @@ public class AddUserViewModel extends ViewModel {
 
     public void setPICK_IMAGE_REQUEST(int PICK_IMAGE_REQUEST) {
         this.PICK_IMAGE_REQUEST = PICK_IMAGE_REQUEST;
+    }
+
+    public void addUser(){
+        AppDatabase db = AppDatabase.getInstance(context);
+        list = db.userDao().getAllUser();
+        if (!list.isEmpty()) {
+            code = list.get(list.size() - 1).getCode() + 1;
+        } else {
+            code = 1;
+        }
+        if (!name.isEmpty() && !mobileNumber.isEmpty()) {
+            User user = new User();
+            user.setName(name);
+            user.setMobileNumber(mobileNumber);
+            user.setCode(code);
+            user.setFilePath(filePath);
+
+            db.userDao().insertUser(user);
+        }
     }
 
 

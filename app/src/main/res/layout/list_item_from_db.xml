@@ -17,7 +17,6 @@
     android:layout_margin="10dp">
 
 
-
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -38,7 +37,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Umeed Samhan"
         android:layout_marginStart="5dp"
-       />
+        android:text="@{userModel.name}"/>
 
     <TextView
         android:id="@+id/tvMobileTitle"
@@ -64,7 +63,7 @@
         app:layout_constraintStart_toEndOf="@id/ivUser"
         app:layout_constraintTop_toBottomOf="@+id/tvName"
         tools:text="123"
-        />
+        android:text="@{String.valueOf(userModel.code)}"/>
 
     <TextView
         android:id="@+id/tvMobileNumber"
@@ -75,7 +74,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvName"
         tools:text="0194563456"
-        />
+        android:text="@{userModel.mobileNumber}"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
