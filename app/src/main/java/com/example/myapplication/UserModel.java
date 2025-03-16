@@ -1,4 +1,4 @@
-package com.example.myapplication.ListFromDb;
+package com.example.myapplication;
 
 public class UserModel {
     public String name;
@@ -14,6 +14,7 @@ public class UserModel {
         this.id = id;
         this.filePath = filePath;
     }
+    public UserModel(){}
 
     public String getName() {
         return name;

@@ -4,26 +4,25 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.myapplication.Database.AppDatabase;
-import com.example.myapplication.Database.User;
 import com.example.myapplication.R;
-import com.squareup.picasso.Picasso;
+import com.example.myapplication.UserModel;
+import com.example.myapplication.databinding.ListItemFromDbBinding;
 
-import java.io.File;
 import java.util.List;
 
 public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> {
 
     private Context context;
     private List<UserModel> list;
+
 
     public UserRecyclerViewAdapter(Context context, List<UserModel> list) {
         this.context = context;
@@ -33,31 +32,38 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.list_item_from_db, parent, false);
-        ViewHolder viewHolder = new ViewHolder(view);
-        return viewHolder;
+//        ListItemFromApiBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),R.layout.list_item_from_db,
+//                parent, false);
+
+        ListItemFromDbBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
+                R.layout.list_item_from_db, parent, false);
+
+        return new ViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvName.setText(list.get(position).getName());
-        holder.tvCode.setText(Integer.toString(list.get(position).getCode()));
-        holder.tvMobileNumber.setText(list.get(position).getMobileNumber());
+//        holder.tvName.setText(list.get(position).getName());
+//        holder.tvCode.setText(Integer.toString(list.get(position).getCode()));
+//        holder.tvMobileNumber.setText(list.get(position).getMobileNumber());
+        UserModel userModel = list.get(position);
+        holder.binding.setUserModel(userModel);
 
-        Picasso.get()
-                .load(new File(list.get(position).getFilePath()))
-                .into(holder.ivUser);
+
+
+//        Picasso.get()
+//                .load(new File(list.get(position).getFilePath()))
+//                .into(holder.ivUser);
+
+        Glide.with(context)
+                .load(list.get(position).getFilePath())
+                .into(holder.binding.ivUser);
 
 //        Picasso.get()
 //                .load(list.get(position).getFilePath())
 //                .placeholder(R.drawable.download) // Use a valid drawable
 //                .error(R.drawable.add_image) // Use a valid drawable
 //                .into(holder.ivUser);
-
-
-        UserModel userModel = list.get(position);
-
-
 
         holder.itemView.setOnLongClickListener(v-> {
 //                AppDatabase db =AppDatabase.getInstance(context);
@@ -104,16 +110,13 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
         return list.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvName, tvCode, tvMobileNumber;
-        ImageView ivUser;
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
-            tvName = itemView.findViewById(R.id.tvName);
-            tvCode = itemView.findViewById(R.id.tvCode);
-            tvMobileNumber = itemView.findViewById(R.id.tvMobileNumber);
-            ivUser = itemView.findViewById(R.id.ivUser);
+        ListItemFromDbBinding binding;
+        public ViewHolder(@NonNull ListItemFromDbBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+
         }
     }
 }

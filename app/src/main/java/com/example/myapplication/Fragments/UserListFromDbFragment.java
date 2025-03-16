@@ -15,8 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.myapplication.Database.AppDatabase;
 import com.example.myapplication.Database.User;
-import com.example.myapplication.ListFromApi.UserListApiAdapter;
-import com.example.myapplication.ListFromDb.UserModel;
+import com.example.myapplication.UserModel;
 import com.example.myapplication.ListFromDb.UserRecyclerViewAdapter;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentUserListFromDbBinding;
@@ -50,7 +49,18 @@ public class UserListFromDbFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         showListFromDb();
+
+//        requireActivity().getOnBackPressedDispatcher().addCallback(
+//                getViewLifecycleOwner(), new OnBackPressedCallback(true) {
+//                    @Override
+//                    public void handleOnBackPressed() {
+////                        Navigation.findNavController(binding.getRoot()).navigate(R.id.action_userListFromDbFragment_to_buttonHolderFragment);
+//                    }
+//                }
+//        );
     }
+
+
 
     private void showListFromDb() {
         AppDatabase db= AppDatabase.getInstance(getContext());

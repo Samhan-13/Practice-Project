@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_userListFromDbFragment_to_addUserFragment"
             app:destination="@id/addUserFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_userListFromDbFragment_to_buttonHolderFragment"-->
+<!--            app:destination="@id/buttonHolderFragment" />-->
     </fragment>
     <fragment
         android:id="@+id/buttonHolderFragment"

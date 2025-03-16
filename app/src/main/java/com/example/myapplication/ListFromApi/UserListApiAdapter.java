@@ -16,16 +16,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserListApiAdapter extends RecyclerView.Adapter<UserListApiAdapter.ViewHolder> {
 
     private Context context;
-    List<UserListApiModel> infolist;
+    private List<UserListApiModel> infolist = new ArrayList<>();
 
-    public UserListApiAdapter(Context context, List<UserListApiModel> infolist) {
+    public UserListApiAdapter(Context context) {
         this.context = context;
-        this.infolist = infolist;
+//        this.infolist = infolist;
     }
 
     @NonNull
@@ -84,5 +85,15 @@ public class UserListApiAdapter extends RecyclerView.Adapter<UserListApiAdapter.
             tvMobileNumber = itemView.findViewById(R.id.tvMobileNumber);
             tvMaidenName = itemView.findViewById(R.id.tvMaidenName);
         }
+    }
+
+    public void setList(List<UserListApiModel> infolist) {
+        this.infolist = infolist;
+
+        if (this.infolist == null) {
+            this.infolist = new ArrayList<>();
+        }
+
+        notifyDataSetChanged();
     }
 }
