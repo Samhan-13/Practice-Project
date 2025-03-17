@@ -1,74 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_margin="10dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:id="@+id/ivUser"
-            android:src="@drawable/download"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+        <data>
+                <import type="com.example.myapplication.UserListApiModel" />
+                <variable
+                    name="userListApiModel"
+                    type="com.example.myapplication.UserListApiModel" />
+        </data>
 
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#079084"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/ivUser"
-            app:layout_constraintEnd_toStartOf="@+id/tvMobileTitle"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Umeed Samhan"
-            android:layout_marginStart="5dp"/>
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
 
-        <TextView
-            android:id="@+id/tvMobileTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#AF000000"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="Mobile"
-            android:layout_marginStart="5dp"/>
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/ivUser"
+                    android:src="@drawable/download"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
-        <TextView
-            android:id="@+id/tvMaidenName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            app:layout_constraintEnd_toStartOf="@+id/tvMobileNumber"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@id/ivUser"
-            app:layout_constraintTop_toBottomOf="@+id/tvName"
-            tools:text="Maiden Name : Sample name" />
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#079084"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/ivUser"
+                    app:layout_constraintEnd_toStartOf="@+id/tvMobileTitle"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Umeed Samhan"
+                    android:layout_marginStart="5dp"
+                    android:text="@{userListApiModel.name}"/>
 
-        <TextView
-            android:id="@+id/tvDesignation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textColor="#AF000000"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/ivUser"
-            app:layout_constraintTop_toBottomOf="@+id/tvMaidenName"
-            tools:text="Junior Software Engineer"
-            android:layout_marginStart="5dp"
-            app:layout_constraintEnd_toStartOf="@+id/tvMobileNumber"/>
+                <TextView
+                    android:id="@+id/tvMobileTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#AF000000"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="Mobile"
+                    android:layout_marginStart="5dp"/>
 
-        <TextView
-            android:id="@+id/tvMobileNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textColor="#079084"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvName"
-            tools:text="0194563456" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tvMaidenName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvMobileNumber"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@id/ivUser"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName"
+                    tools:text="Maiden Name : Sample name"
+                    android:text="@{userListApiModel.maidenName}"/>
+
+                <TextView
+                    android:id="@+id/tvDesignation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#AF000000"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@id/ivUser"
+                    app:layout_constraintTop_toBottomOf="@+id/tvMaidenName"
+                    tools:text="Junior Software Engineer"
+                    android:layout_marginStart="5dp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvMobileNumber"
+                    android:text="@{userListApiModel.designation}"/>
+
+                <TextView
+                    android:id="@+id/tvMobileNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#079084"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName"
+                    tools:text="0194563456"
+                    android:text="@{userListApiModel.mobileNumber}"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

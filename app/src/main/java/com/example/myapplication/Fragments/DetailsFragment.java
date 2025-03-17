@@ -33,9 +33,10 @@ public class DetailsFragment extends Fragment {
         DetailsServiceImpl service = new DetailsServiceImpl();
 
         service.request(viewModel.getId(), data -> {
-            binding.tvId.setText(viewModel.getId().toString());
-            binding.tvEmail.setText(data.getEmail());
-            binding.tvName.setText(data.getName());
+
+            binding.setId(viewModel.getId().toString());
+            binding.setName(data.getName());
+            binding.setEmail(data.getEmail());
         });
 
     }

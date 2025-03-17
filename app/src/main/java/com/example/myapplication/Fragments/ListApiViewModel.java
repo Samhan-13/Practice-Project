@@ -1,11 +1,9 @@
 package com.example.myapplication.Fragments;
 
-import android.view.View;
-
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.myapplication.ListFromApi.UserListApiModel;
+import com.example.myapplication.UserListApiModel;
 
 import java.util.List;
 

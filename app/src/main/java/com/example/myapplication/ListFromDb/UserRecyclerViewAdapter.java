@@ -32,8 +32,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        ListItemFromApiBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),R.layout.list_item_from_db,
-//                parent, false);
+
 
         ListItemFromDbBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
                 R.layout.list_item_from_db, parent, false);
@@ -43,9 +42,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-//        holder.tvName.setText(list.get(position).getName());
-//        holder.tvCode.setText(Integer.toString(list.get(position).getCode()));
-//        holder.tvMobileNumber.setText(list.get(position).getMobileNumber());
+
         UserModel userModel = list.get(position);
         holder.binding.setUserModel(userModel);
 
@@ -59,15 +56,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
                 .load(list.get(position).getFilePath())
                 .into(holder.binding.ivUser);
 
-//        Picasso.get()
-//                .load(list.get(position).getFilePath())
-//                .placeholder(R.drawable.download) // Use a valid drawable
-//                .error(R.drawable.add_image) // Use a valid drawable
-//                .into(holder.ivUser);
-
         holder.itemView.setOnLongClickListener(v-> {
-//                AppDatabase db =AppDatabase.getInstance(context);
-//                db.userDao().deleteUser(userModel.getId());
             showDialog(userModel.getId());
                 return true;
         });

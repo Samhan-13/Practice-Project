@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.myapplication.Api.UsersServiceImpl;
 import com.example.myapplication.ListFromApi.UserListApiAdapter;
-import com.example.myapplication.ListFromApi.UserListApiModel;
+import com.example.myapplication.UserListApiModel;
 import com.example.myapplication.databinding.FragmentListApiBinding;
 
 import java.util.List;

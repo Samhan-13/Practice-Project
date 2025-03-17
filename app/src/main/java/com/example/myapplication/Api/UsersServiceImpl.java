@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.example.myapplication.CallBack;
-import com.example.myapplication.ListFromApi.UserListApiModel;
+import com.example.myapplication.UserListApiModel;
 
 import java.util.ArrayList;
 import java.util.List;

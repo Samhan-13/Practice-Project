@@ -11,10 +11,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.ListFromDb.UserRecyclerViewAdapter;
 import com.example.myapplication.R;
+import com.example.myapplication.UserListApiModel;
+import com.example.myapplication.databinding.ListItemFromApiBinding;
+import com.example.myapplication.databinding.ListItemFromDbBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,35 +31,28 @@ public class UserListApiAdapter extends RecyclerView.Adapter<UserListApiAdapter.
 
     public UserListApiAdapter(Context context) {
         this.context = context;
-//        this.infolist = infolist;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.list_item_from_api, parent, false);
-        ViewHolder viewHolder = new ViewHolder(view);
-        return viewHolder;
+        ListItemFromApiBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
+                R.layout.list_item_from_api, parent, false);
+
+        return new UserListApiAdapter.ViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        if(infolist!= null){
-            holder.tvName.setText(infolist.get(position).getName());
-            holder.tvDesignation.setText(infolist.get(position).getDesignation());
-            holder.tvMobileNumber.setText(infolist.get(position).getMobileNumber());
+        UserListApiModel userListApiModel = infolist.get(position);
 
-            if(infolist.get(position).getMaidenName()!=null && !infolist.get(position).getMaidenName().isEmpty()){
-                holder.tvMaidenName.setText("Maiden Name: "+infolist.get(position).getMaidenName());
-                holder.tvMaidenName.setVisibility(VISIBLE);
-
-            }else{
-                holder.tvMaidenName.setVisibility(GONE);
-            }
-
-//            holder.tvMaidenName.setVisibility(GONE);
+        if(infolist.get(position).getMaidenName()!=null && !infolist.get(position).getMaidenName().isEmpty()){
+            holder.binding.tvMaidenName.setVisibility(VISIBLE);
+        }else{
+            holder.binding.tvMaidenName.setVisibility(GONE);
         }
 
+        holder.binding.setUserListApiModel(userListApiModel);
         UserListApiModel info = infolist.get(position);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -76,14 +74,10 @@ public class UserListApiAdapter extends RecyclerView.Adapter<UserListApiAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView tvName,tvDesignation, tvMobileNumber, tvMaidenName;
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            tvName = itemView.findViewById(R.id.tvName);
-            tvDesignation = itemView.findViewById(R.id.tvDesignation);
-            tvMobileNumber = itemView.findViewById(R.id.tvMobileNumber);
-            tvMaidenName = itemView.findViewById(R.id.tvMaidenName);
+        ListItemFromApiBinding binding;
+        public ViewHolder(@NonNull ListItemFromApiBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
     }
 
